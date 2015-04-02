@@ -3,91 +3,72 @@
 
 <:Body>
   
-	
-
 <div class="row">
 
 	<div class="col-sm-6 center">
-
 		<div class="progress--circle progress--{{ accuracy_rounded }}">
-			<div class="progress__number">{{ if accuracy.is_a? Integer }} {{ accuracy }} {{else}} 0 {{end}}%</div>
+			<div class="progress__number">
+				{{ if accuracy.is_a? Integer }}
+				{{ accuracy }} {{else}} 0 {{end}}%
+			</div>
 		</div>
-
 		<h4 class="top-header">Accuracy</h4>
 	</div>
 		
 	<div class="col-sm-6 center">
-		<p class="wpm-integer"> 
+		<p class="wpm-integer">
 			{{ if net_wpm.is_a? Integer }} {{net_wpm}}  {{else}} 0 {{end}}
 		</p>
 		<h4 class="top-header">Words Per Min.</h4>
 	</div>
 
-</div>	
+</div>
 	
 	
 <div class="row">
-
-	
 	<div class="col-xs-4 center skill">
 		<h3 class="{{ if net_wpm < 31 && net_wpm > 0}}red-bright{{else}} red
-							 {{ end }}">Beginner</h3>
+							 {{ end }}">Beginner
+		</h3>
 	</div>
 	
 	<div class="col-xs-4 center skill">
 		<h3 class="{{ if net_wpm > 30 && net_wpm < 61}}yellow-bright {{else}} yellow
-							 {{ end }}">Average</h3>
+							 {{ end }}"> Average
+		</h3>
 	</div>
   
   <div class="col-xs-4 center skill">
-  		<h3 class="{{ if net_wpm > 60}}green-bright {{else}} green
-							 {{ end }}">Professional</h3>
+  	<h3 class="{{ if net_wpm > 60}}green-bright {{else}} green
+							 {{ end }}">Professional
+		</h3>
   </div>
 	
 	<div class="col-xs-12">
 	
 	<div class="progress">
 		<div class="progress-bar progress-bar-{{ if net_wpm > 60 }}success
-																				{{elsif net_wpm > 31 }}warning
-																				{{else}}danger
-																				{{end}} 
-							progress-bar-striped" role="progressbar" 
-							aria-valuenow="{{net_wpm}}" aria-valuemin="0" aria-valuemax="100" 
-							style="width: {{net_wpm}}%">
-							
+						 		{{elsif net_wpm > 31 }}warning{{else}}danger{{end}}
+								progress-bar-striped" role="progressbar" 
+				 aria-valuenow="{{net_wpm}}" aria-valuemin="0" aria-valuemax="100" 
+				 style="width: {{net_wpm}}%">
 			<span class="sr-only">{{net_wpm}}%</span>
 		</div>
 	</div>		
-	  
+</div>
 
-
-
-	</div>
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-<div class="col-xs-12 col-sm-10 col-sm-offset-1 blue-box">	
+<div class="col-xs-12 col-sm-10 col-sm-offset-1 blue-box">
 	
 	<h3 class="center" style="color: white;">Sample Text</h3>
 	<p class="lead sample-text">{{ sample_text }}</p>
 	
-	<form e-submit="complete" role="form"> <!--made the submit called complete, this will act as the thing to bring the share modal down once you hit enter-->
+	<form e-submit="complete" role="form">
 		<div class="form-groop" style="margin-bottom: 20px;">
 			<label><h3 style="color: white;">Begin Typing</h3></label>
-			<input class="form-control submit-field" type="text" 
+			<input class="form-control submit-field" type="text"
 						 value="{{ page._user_string }}" />
-		
 		</div>
 	</form>
- 
- 
- </div>
+</div>
 
 
